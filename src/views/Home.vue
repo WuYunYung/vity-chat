@@ -23,6 +23,7 @@
             justify-between
             gap-4
             cursor-pointer
+            hover:bg-gray-100
           "
         >
           <div>
@@ -53,7 +54,41 @@
       <div class="py-4 px-6 border-b-2 bg-gray-100 font-bold text-xl">
         To: Somebody
       </div>
-      <div class="flex-1">内容</div>
+      <div class="flex-1 flex flex-col overflow-y-auto">
+        <section
+          v-for="index in 20"
+          :key="`chat_${index}`"
+          class="flex p-8 gap-8"
+          :class="{
+            'flex-row-reverse': index % 2,
+          }"
+        >
+          <div
+            class="
+              h-16
+              w-16
+              bg-gray-200
+              rounded-full
+              flex
+              justify-center
+              items-center
+            "
+          >
+            头像
+          </div>
+          <p
+            class="max-w-xl text-xl bg-gray-200 p-6 rounded-2xl"
+            :class="{
+              'bg-blue-500 text-white': index % 2,
+            }"
+          >
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit
+            delectus unde, neque amet perferendis cumque. Voluptatum, facere!
+            Harum, numquam, enim, ratione aliquid mollitia nesciunt iste cum
+            eius odio pariatur est?
+          </p>
+        </section>
+      </div>
       <div class="py-4 px-6 border-t-2 flex gap-4">
         <input
           type="text"
